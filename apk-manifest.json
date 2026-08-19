@@ -1,0 +1,7 @@
+﻿{
+    "notes":  "修复 Shizuku 命令执行；设置页收纳连接/插件/检查更新",
+    "url":  "https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.12.7/DSH-Mobile-0.12.7-debug.apk",
+    "versionCode":  25,
+    "versionName":  "0.12.7",
+    "sha256":  "e46543cc01f4bab758663664e41f4cd635462f1d486216ad26769ba1d6af45d0"
+}
