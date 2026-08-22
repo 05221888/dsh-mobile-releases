@@ -1,7 +1,1 @@
-﻿{
-    "notes":  "修复 Shizuku 命令执行；设置页收纳连接/插件/检查更新",
-    "url":  "https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.12.7/DSH-Mobile-0.12.7-debug.apk",
-    "versionCode":  25,
-    "versionName":  "0.12.7",
-    "sha256":  "e46543cc01f4bab758663664e41f4cd635462f1d486216ad26769ba1d6af45d0"
-}
+{"notes":"新增内置插件「记忆互通」：与电脑端 DSH 通过 Gitee 私有仓库双向同步长期记忆/待办/插件清单（token 自备）。","url":"https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.13.0/DSH-Mobile-0.13.0-debug.apk","versionCode":28,"versionName":"0.13.0","sha256":"c20f573106e0c4cdcb47534c1ba3a4fd6dc2da81f868e174d7fcf4b36e2ed287"}
