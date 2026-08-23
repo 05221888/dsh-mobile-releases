@@ -1,1 +1,7 @@
-{"notes":"记忆互通新增信箱：peer_send/inbox/ack，两端可异步互发消息与插件课。","url":"https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.13.1/DSH-Mobile-0.13.1-debug.apk","versionCode":29,"versionName":"0.13.1","sha256":"454abd45327bb356b7f5deecae550ff5adddcbae956121696c8f07587bbe7135"}
+{
+  "versionCode": 30,
+  "versionName": "0.14.0",
+  "url": "https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.14.0/DSH-Mobile-0.14.0-debug.apk",
+  "sha256": "307162010163b99fadbbc6f1c2f4bdf403e09882cf056702c6c1e435708371a1",
+  "notes": "「AI 生图」默认开启并修复工作区面板挂载（centerCol 补丁内置），新增「问题导航」气泡插件（电脑同款），记忆互通继续在列。"
+}
