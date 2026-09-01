@@ -2,10 +2,10 @@
   "versionCode": 31,
   "versionName": "0.15.0",
   "url": "https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.0/DSH-Mobile-0.15.0-debug.apk.xz",
-  "sha256": "af2d085702a04f84a26cd7618e5a293b262475856ab7fb48a38f50f72a9fcc95",
+  "sha256": "202ce44101ca409f42bb00f8e74d4080420dafc78d2501f675d99fd703b562a9",
   "size": 134050939,
   "compressedSize": 81442288,
   "format": "xz",
   "decompressionHint": "xz -d DSH-Mobile-0.15.0-debug.apk.xz  # 7-Zip / WSL tar -xJf 也可",
-  "notes": "升级 @dickpy/dsh-imagegen v1.0.5 → v1.5.1（多 provider channels：grok-imagine / nanobanana / seedream-5.0-pro / dall-e-3；centerCol 选择器已被官方原生支持），升级 dsh-notify-sound v0.1.0 → v0.1.1（更细的会话状态触发），新增 dsh-mobile-nv-failover 插件：手机本地 NVIDIA NIM（integrate.api.nvidia.com/v1）key 池轮换 + 自动 failover，nvapi- 密钥只存设备本地（~/.dsh/dsh-mobile-nv-failover/keys.json，0600），APK 不含任何密钥。所有原有功能插件保留。"
+  "notes": "升级 @dickpy/dsh-imagegen v1.0.5 → v1.5.1（多 provider channels：grok-imagine / nanobanana / seedream-5.0-pro / dall-e-3；centerCol 选择器已被官方原生支持），升级 dsh-notify-sound v0.1.0 → v0.1.1（更细的会话状态触发），新增 dsh-mobile-nv-failover 插件：手机本地 NVIDIA NIM（integrate.api.nvidia.com/v1）key 池轮换 + 自动 failover，nvapi- 密钥只存设备本地（~/.dsh/dsh-mobile-nv-failover/keys.json，0600），APK 不含任何密钥。所有原有功能插件保留。\n注：上方 sha256 字段是 .apk.xz 压缩包本身的 SHA256（手机端 UpdateManager 直接对下载下来的 .xz 文件校验），下载后用 7-Zip/WSL 解压后才是 APK。"
 }
