@@ -1,11 +1,11 @@
 {
-  "versionCode": 31,
-  "versionName": "0.15.0",
-  "url": "https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.0/DSH-Mobile-0.15.0-debug.apk.xz",
-  "sha256": "202ce44101ca409f42bb00f8e74d4080420dafc78d2501f675d99fd703b562a9",
-  "size": 134050939,
-  "compressedSize": 81442288,
-  "format": "xz",
-  "decompressionHint": "xz -d DSH-Mobile-0.15.0-debug.apk.xz  # 7-Zip / WSL tar -xJf 也可",
-  "notes": "升级 @dickpy/dsh-imagegen v1.0.5 → v1.5.1（多 provider channels：grok-imagine / nanobanana / seedream-5.0-pro / dall-e-3；centerCol 选择器已被官方原生支持），升级 dsh-notify-sound v0.1.0 → v0.1.1（更细的会话状态触发），新增 dsh-mobile-nv-failover 插件：手机本地 NVIDIA NIM（integrate.api.nvidia.com/v1）key 池轮换 + 自动 failover，nvapi- 密钥只存设备本地（~/.dsh/dsh-mobile-nv-failover/keys.json，0600），APK 不含任何密钥。所有原有功能插件保留。\n注：上方 sha256 字段是 .apk.xz 压缩包本身的 SHA256（手机端 UpdateManager 直接对下载下来的 .xz 文件校验），下载后用 7-Zip/WSL 解压后才是 APK。"
+  "versionCode": 32,
+  "versionName": "0.15.1",
+  "url": "https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.1/DSH-Mobile-0.15.1-debug.apk",
+  "sha256": "bb472bdc97cf5a69dc868469d3c65d86ec821407493fba888f51309a25600b33",
+  "size": 81657239,
+  "compressedSize": 81435520,
+  "format": "apk",
+  "decompressionHint": "已是 .apk，无需解压",
+  "notes": "v0.15.1 行为修复：APK 安装链路补 xz 解压步骤。v0.15.0 发布时 manifest 的 sha256 字段误填为 APK 解压后值，导致手机端 UpdateManager 校验通过后下载到的 .apk.xz 文件被直接喂给系统安装器，触发「解析软件包时出现问题(33) PackageInfo is null」。修复路径：① manifest 的 sha256 字段与 url 必须指向同一文件（已修）；② PhoneSettingsActivity.checkAppUpdate() 在 downloadApk 后追加 XZCompressorInputStream 解压步骤（commons-compress 依赖已在用，复用即可），真正解压回 APK 再触发系统安装器；③ v0.15.1 APK 81MB 直接 ≤ Gitee 100MB 单附件上限，url 改回 .apk（xz 兼容逻辑保留做未来后备）。下载 https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.1/DSH-Mobile-0.15.1-debug.apk 。"
 }
