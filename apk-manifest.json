@@ -1,10 +1,10 @@
 {
-    "size":  81741399,
-    "format":  "apk",
-    "url":  "https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.7/DSH-Mobile-0.15.7-debug.apk",
-    "notes":  "v0.15.7：打断「引擎未运行→自动恢复」死循环。 根因：cordis 插件 Promise.allSettled 失败后进程立刻退出；看门狗 5s 又拉，无限重启；界面只显示堆栈尾巴看不到真错误。 修复： 1) 15s 内连续早夭 ≥2 次 → 自动切 ultra-safe cordis（去掉 shell-termux / ui-responsive，回到官方 bash-sandbox + ui-layout） 2) 探活成功后清零早夭计数；失败重启间隔 8–15s，不再 5s 狂拉 3) engine.log 摘要改为优先显示 Error/failed 行 + 末尾 40 行，便于定位具体插件 覆盖安装后：等约 1 分钟（会自动尝试两次再切安全模式）。若仍失败，把引导页上的 engine.log 摘要截图发我。",
-    "versionCode":  38,
-    "decompressionHint":  "已是 .apk，无需解压",
-    "versionName":  "0.15.7",
-    "sha256":  "594a69de7c352ba1de8d0cdc4788d1fd4c55b9ed0504dc3a037c3ea29dc803c5"
+  "versionCode": 39,
+  "versionName": "0.15.8",
+  "url": "https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.8/DSH-Mobile-0.15.8-debug.apk",
+  "sha256": "bd5be8e38d71a077849a8b94e9103d3ae01a7bea2f701bb8cf9cb3b3032f0448",
+  "size": 81745331,
+  "format": "apk",
+  "decompressionHint": "已是 .apk，无需解压",
+  "notes": "v0.15.8：不再靠猜哪条插件坏。每次启动读 engine.log 原文里的 failed to (import|apply) loader entry <id>，把这条坏 entry 从 cordis.patch.yml 摘掉并记住（收敛重试，每崩一次少一条）；再把 patch 引用但引擎树没有的插件补成引擎可见；引擎进程退出即结束等待、不再空等 75s。本机用同一份 snapshot 真跑引擎验证：按上述隔离后 HTTP 200。下载 https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.8/DSH-Mobile-0.15.8-debug.apk 。"
 }
