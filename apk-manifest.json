@@ -1,10 +1,10 @@
 {
-  "versionCode": 39,
-  "versionName": "0.15.8",
-  "url": "https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.8/DSH-Mobile-0.15.8-debug.apk",
-  "sha256": "bd5be8e38d71a077849a8b94e9103d3ae01a7bea2f701bb8cf9cb3b3032f0448",
-  "size": 81745331,
+  "versionCode": 40,
+  "versionName": "0.15.9",
+  "url": "https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.9/DSH-Mobile-0.15.9-debug.apk",
+  "sha256": "1c175652a5e580b4947f3807454512bfd74fda39fa3f858c0dbc1547341e8e7f",
+  "size": 81748311,
   "format": "apk",
   "decompressionHint": "已是 .apk，无需解压",
-  "notes": "v0.15.8：不再靠猜哪条插件坏。每次启动读 engine.log 原文里的 failed to (import|apply) loader entry <id>，把这条坏 entry 从 cordis.patch.yml 摘掉并记住（收敛重试，每崩一次少一条）；再把 patch 引用但引擎树没有的插件补成引擎可见；引擎进程退出即结束等待、不再空等 75s。本机用同一份 snapshot 真跑引擎验证：按上述隔离后 HTTP 200。下载 https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.8/DSH-Mobile-0.15.8-debug.apk 。"
+  "notes": "v0.15.9 真凶：引擎在 files/home/ds/tmp-upgrade/package 这棵外来残树里跑（用户截图的堆栈位置），profile 的 @deepseek-ai 链接又指向别人目录 ⇒ dsh-subprocess-local 找不到 + koffi 原生库缺失；而 snapshotFresh 只看 .online-fingerprint 就认为运行时没问题 ⇒ 坏树永远换不掉。修复：① 每次启动做运行时体检（node/termux-exec/dsh 本体/app-boot/plugin-loader/dsh-base/subprocess-local/sandbox-local/koffi 必须在本 App usr 内，并检测外来 node_modules 根），不过则强制用内嵌快照重解压；② 外来 npm 树改名移开 + 删 home/ds/tmp-upgrade；③ profile 的 @deepseek-ai 链接一律重指到本 App 引擎树（195 条目标实测齐全）。本机用同一份 snapshot 复现并验证：修复后 curl 200。下载 https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.9/DSH-Mobile-0.15.9-debug.apk 。"
 }
