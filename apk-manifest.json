@@ -1,10 +1,10 @@
 {
-    "size":  81734213,
+    "size":  81734753,
     "format":  "apk",
-    "url":  "https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.4/DSH-Mobile-0.15.4-debug.apk",
-    "notes":  "v0.15.4 保证装完能进聊天。① 默认只开最小插件集（安卓控制+删除会话），重型插件改默认关闭，进聊天后在手机设置再开；② 四级启动兜底：当前集合→safe→bootCritical→裸引擎（目录插件全关+剥 mcp-vision+修 ui-layout）；③ 工厂语义纠正：ui-responsive 缺失时强制重开 ui-layout，避免引擎在但界面死；④ 依赖预检加深（入口+随包 node_modules 一层，空壳 entry 判坏）；⑤ 视觉 MCP 仅在配置 dashscope-key 时挂载。下载 https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.4/DSH-Mobile-0.15.4-debug.apk 。",
-    "versionCode":  35,
+    "url":  "https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.5/DSH-Mobile-0.15.5-debug.apk",
+    "notes":  "v0.15.5 修复「检查 App 更新失败：Input is not in the xz format」。应用内更新此前无条件把下载文件当 xz 解压，而 0.15.x 发布的是裸 .apk。现按魔数识别 ZIP/XZ：是 APK 直接安装，是 xz 才解压。覆盖安装本包后，应用内更新可正常工作。",
+    "versionCode":  36,
     "decompressionHint":  "已是 .apk，无需解压",
-    "versionName":  "0.15.4",
-    "sha256":  "1623acaef52854ec4878655ad9a1321362ac59dc7d6834f972f93f6b137f6074"
+    "versionName":  "0.15.5",
+    "sha256":  "0043b338d9bd7aeb1345ea99c0586cd10c718494dfc48f25cdcd8cd6762646e1"
 }
