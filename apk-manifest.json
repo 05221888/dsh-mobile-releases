@@ -1,10 +1,10 @@
 {
-  "versionCode": 33,
-  "versionName": "0.15.2",
-  "url": "https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.2/DSH-Mobile-0.15.2-debug.apk",
-  "sha256": "30860f7a48aa03e008cea2fb870e11d33a9a76d65b924cd82735b6250945b501",
-  "size": 81727357,
+  "versionCode": 34,
+  "versionName": "0.15.3",
+  "url": "https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.3/DSH-Mobile-0.15.3-debug.apk",
+  "sha256": "ad9bbcf3957fd50175a81d61d1608fae034f03a0a8bd46c8aaa53ad6bc0c9a99",
+  "size": 81838589,
   "format": "apk",
   "decompressionHint": "已是 .apk，无需解压",
-  "notes": "v0.15.2 修「装完用不了」：v0.15.0/0.15.1 把 AI 生图插件升到 1.5.1 时丢了随包 node_modules，手机快照只有 @deepseek-ai/schemastery，插件顶部 import \"schemastery\" 抛 ERR_MODULE_NOT_FOUND，cordis fail-loud 把整棵插件树带倒 → 引擎两次启动超时、进不去聊天；而该插件又标了 safe=true，一级安全模式关不掉它。修复：① 恢复插件随包 node_modules；② 引擎侧新增裸依赖兜底（bare schemastery/ws symlink 到快照作用域版）；③ 插件铺装改版本感知（版本不一致整目录重铺）；④ imagegen safe 改 false；⑤ 启动改三级兜底（全开→safe→最小集）。下载 https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.2/DSH-Mobile-0.15.2-debug.apk 。"
+  "notes": "v0.15.3 真正修好「用不了」。v0.15.2 的漏洞：只在插件版本不同时才重铺，而手机上坏掉的生图插件恰好也是 1.5.1 （版本相同、随包 node_modules 丢失）→ 被跳过 → 依旧起不来。本版三层保险：① 插件树完整性标记（版本+文件数+App versionCode），老目录一律重铺一次；② 插件依赖预检——裸 import 找不到就从引擎自带 node_modules 借（symlink，含裸名→@deepseek-ai/名映射，悬空链接自动替换），实在借不到就自动关掉该插件，绝不让引擎起不来；③ 三级启动兜底 全开→safe→最小集（75s/60s/60s）。另新增 startup-report.txt 启动报告便于排障。下载 https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.3/DSH-Mobile-0.15.3-debug.apk 。"
 }
