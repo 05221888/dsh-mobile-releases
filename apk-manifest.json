@@ -1,11 +1,10 @@
 {
-  "versionCode": 32,
-  "versionName": "0.15.1",
-  "url": "https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.1/DSH-Mobile-0.15.1-debug.apk",
-  "sha256": "bb472bdc97cf5a69dc868469d3c65d86ec821407493fba888f51309a25600b33",
-  "size": 81657239,
-  "compressedSize": 81435520,
+  "versionCode": 33,
+  "versionName": "0.15.2",
+  "url": "https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.2/DSH-Mobile-0.15.2-debug.apk",
+  "sha256": "30860f7a48aa03e008cea2fb870e11d33a9a76d65b924cd82735b6250945b501",
+  "size": 81727357,
   "format": "apk",
   "decompressionHint": "已是 .apk，无需解压",
-  "notes": "v0.15.1 行为修复：APK 安装链路补 xz 解压步骤。v0.15.0 发布时 manifest 的 sha256 字段误填为 APK 解压后值，导致手机端 UpdateManager 校验通过后下载到的 .apk.xz 文件被直接喂给系统安装器，触发「解析软件包时出现问题(33) PackageInfo is null」。修复路径：① manifest 的 sha256 字段与 url 必须指向同一文件（已修）；② PhoneSettingsActivity.checkAppUpdate() 在 downloadApk 后追加 XZCompressorInputStream 解压步骤（commons-compress 依赖已在用，复用即可），真正解压回 APK 再触发系统安装器；③ v0.15.1 APK 81MB 直接 ≤ Gitee 100MB 单附件上限，url 改回 .apk（xz 兼容逻辑保留做未来后备）。下载 https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.1/DSH-Mobile-0.15.1-debug.apk 。"
+  "notes": "v0.15.2 修「装完用不了」：v0.15.0/0.15.1 把 AI 生图插件升到 1.5.1 时丢了随包 node_modules，手机快照只有 @deepseek-ai/schemastery，插件顶部 import \"schemastery\" 抛 ERR_MODULE_NOT_FOUND，cordis fail-loud 把整棵插件树带倒 → 引擎两次启动超时、进不去聊天；而该插件又标了 safe=true，一级安全模式关不掉它。修复：① 恢复插件随包 node_modules；② 引擎侧新增裸依赖兜底（bare schemastery/ws symlink 到快照作用域版）；③ 插件铺装改版本感知（版本不一致整目录重铺）；④ imagegen safe 改 false；⑤ 启动改三级兜底（全开→safe→最小集）。下载 https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.2/DSH-Mobile-0.15.2-debug.apk 。"
 }
