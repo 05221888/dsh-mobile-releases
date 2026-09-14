@@ -1,10 +1,10 @@
 {
-  "versionCode": 40,
-  "versionName": "0.15.9",
-  "url": "https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.9/DSH-Mobile-0.15.9-debug.apk",
-  "sha256": "1c175652a5e580b4947f3807454512bfd74fda39fa3f858c0dbc1547341e8e7f",
-  "size": 81748311,
+  "versionCode": 41,
+  "versionName": "0.15.10",
+  "url": "https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.10/DSH-Mobile-0.15.10-debug.apk",
+  "sha256": "c85f635dab728a8926899d2cd9bb2ffaac4dda6401f82cfc29a8d7b7730bf783",
+  "size": 81870554,
   "format": "apk",
   "decompressionHint": "已是 .apk，无需解压",
-  "notes": "v0.15.9 真凶：引擎在 files/home/ds/tmp-upgrade/package 这棵外来残树里跑（用户截图的堆栈位置），profile 的 @deepseek-ai 链接又指向别人目录 ⇒ dsh-subprocess-local 找不到 + koffi 原生库缺失；而 snapshotFresh 只看 .online-fingerprint 就认为运行时没问题 ⇒ 坏树永远换不掉。修复：① 每次启动做运行时体检（node/termux-exec/dsh 本体/app-boot/plugin-loader/dsh-base/subprocess-local/sandbox-local/koffi 必须在本 App usr 内，并检测外来 node_modules 根），不过则强制用内嵌快照重解压；② 外来 npm 树改名移开 + 删 home/ds/tmp-upgrade；③ profile 的 @deepseek-ai 链接一律重指到本 App 引擎树（195 条目标实测齐全）。本机用同一份 snapshot 复现并验证：修复后 curl 200。下载 https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.9/DSH-Mobile-0.15.9-debug.apk 。"
+  "notes": "v0.15.10 修「运行时更新失败，请重试」：① 覆盖解压时旧位置若是非空目录，Files.deleteIfExists 会抛 DirectoryNotEmptyException 而没兜住 → 整次解压中断；改成 forceDelete（文件/目录/悬空链接都能清）。② 刷新前先清场：移开外来 npm 树 + 整棵删掉 usr 再解压。③ 换新运行时后清掉旧 engine.log 与隔离集合，避免拿上一棵坏树的报错把好插件永久关掉。④ 体检不再把 profiles 下 195 条 Termux 链接当损坏（否则每次启动都重解压）。⑤ 失败原因写入 startup-report.txt（含磁盘可用空间）。下载 https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.10/DSH-Mobile-0.15.10-debug.apk 。"
 }
