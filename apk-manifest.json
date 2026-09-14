@@ -1,10 +1,10 @@
 {
-  "versionCode": 41,
-  "versionName": "0.15.10",
-  "url": "https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.10/DSH-Mobile-0.15.10-debug.apk",
-  "sha256": "c85f635dab728a8926899d2cd9bb2ffaac4dda6401f82cfc29a8d7b7730bf783",
-  "size": 81870554,
+  "versionCode": 42,
+  "versionName": "0.15.11",
+  "url": "https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.11/DSH-Mobile-0.15.11-debug.apk",
+  "sha256": "1a9d1233a693483d1e4f9d69ac5671269fab5d7d9e6d5ee3a1ddf938fe698cb7",
+  "size": 82115228,
   "format": "apk",
   "decompressionHint": "已是 .apk，无需解压",
-  "notes": "v0.15.10 修「运行时更新失败，请重试」：① 覆盖解压时旧位置若是非空目录，Files.deleteIfExists 会抛 DirectoryNotEmptyException 而没兜住 → 整次解压中断；改成 forceDelete（文件/目录/悬空链接都能清）。② 刷新前先清场：移开外来 npm 树 + 整棵删掉 usr 再解压。③ 换新运行时后清掉旧 engine.log 与隔离集合，避免拿上一棵坏树的报错把好插件永久关掉。④ 体检不再把 profiles 下 195 条 Termux 链接当损坏（否则每次启动都重解压）。⑤ 失败原因写入 startup-report.txt（含磁盘可用空间）。下载 https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.10/DSH-Mobile-0.15.10-debug.apk 。"
+  "notes": "v0.15.11 修「运行时更新失败，请重试」+ 老 WebView 起不来。① 备份不再整棵 copyRecursively —— 快照 profiles 下 510 条 Termux 悬空符号链接会让它抛 NoSuchFileException 被吞掉，界面永远停在「运行时更新失败」；改成只精确备份 7 项用户数据、悬空链接只删链接本身，备份不完整就中止刷新、绝不清场。② node-pty 原生绑定的 pty.node 需要 _Unwind_Resume，而快照里 Termux 版 libc++ 把它留成隐藏符号；该 import 失败会因 cordis fail-loud 拖垮整棵插件树，引擎永远 bind 不上端口。现在降级为用到才报错，普通子进程走 child_process 不受影响。③ 前端 bundle 的 ??= ||= &&= 与私有类成员是语法错误，Chromium 83（Android 10 出厂 WebView）解析不了，页面永久停在 Loading plugins；已按 Chromium<85 降级，并把 Object.hasOwn / Array.at / structuredClone / replaceAll / WeakRef / AbortSignal.any 等运行时 polyfill 内联进首页。真机（MIX 2S / Android 10 / WebView 83）验证：引擎正常 bind :3080、界面完整渲染、控制台零报错。注意：交互式终端仍不可用（需重建 android-arm64 的 pty.node）；聊天、工具调用、文件操作正常。下载 https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.11/DSH-Mobile-0.15.11-debug.apk"
 }
