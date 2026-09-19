@@ -1,10 +1,10 @@
 {
-  "versionCode": 45,
-  "versionName": "0.15.14",
-  "url": "https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.14/DSH-Mobile-0.15.14-debug.apk",
-  "sha256": "b1ea42fcac21312a9b4af013ce378317b3b5d4f7f75ba8d7886e6169b7048cd1",
-  "size": 82095120,
+  "versionCode": 46,
+  "versionName": "0.15.15",
+  "url": "https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.15/DSH-Mobile-0.15.15-debug.apk",
+  "sha256": "3128081532f44c1975434a17569350c8673a1e96a63b7c1df5989c48e75e65e2",
+  "size": 82100368,
   "format": "apk",
   "decompressionHint": "已是 .apk，无需解压",
-  "notes": "v0.15.12~0.15.14 三连修（都是引擎/界面生命周期）：① 修「引擎双启动 → EADDRINUSE 整树崩」——真机 startup-report 抓到 8.4KB 崩溃栈；冷启动 20-45s 窗口里旧逻辑把正在启动的引擎当坏引擎杀掉重来。现在 60s 启动宽限期内只等不杀、引擎句柄改成进程级单例、重启前真等端口释放（最多 8s）。② 修「后台引擎死了没人拉，通知却还写着运行中」——看门狗在正常启动路径上从来没装上（引擎已在跑就直接 return）；现在只要运行时在位就装上，且不再无脑清冷却；划掉界面也不再杀引擎（保活真的生效）。③ 修「界面白屏/渲染进程崩溃把 App 带走」——补 onRenderProcessGone：崩溃后自动重建界面，不再白屏也不再被系统杀。下载 https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.14/DSH-Mobile-0.15.14-debug.apk"
+  "notes": "v0.15.15 修「设置页划不到底，配不了自定义提供方的 API Key」。根因：手机 WebView 83（Chromium 83）解析不了 CSS inset 简写（Chrome 87 才有），dsh 面板的 position:fixed;inset:0 整条被丢弃 → 回落到 static position → 面板跑到屏幕外被裁，只剩上半截，所以划不到底。修复：① 运行时 inset shim（把 1~4 值简写展开成 top/right/bottom/left，覆盖已有/动态插入的 <style> 与 CSSOM insertRule，新内核自动跳过）；② 移动端抽屉不再用 transform 位移（transform 会让 fixed 后代以抽屉为参照系），改 left 位移。顺带修掉内置插件每次启动被判「拷贝不完整」而全量重铺的问题。下载 https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.15/DSH-Mobile-0.15.15-debug.apk"
 }
