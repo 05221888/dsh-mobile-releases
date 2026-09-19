@@ -1,10 +1,10 @@
 {
-  "versionCode": 48,
-  "versionName": "0.15.17",
-  "url": "https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.17/DSH-Mobile-0.15.17-debug.apk",
-  "sha256": "5b840287907152372fa81cddda141510ec5126ea3d986dfaa5a72fa6c0998a6f",
-  "size": 82107860,
+  "versionCode": 49,
+  "versionName": "0.15.18",
+  "url": "https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.18/DSH-Mobile-0.15.18-debug.apk",
+  "sha256": "2192de2c3498c8b13ea4fd335dd0d275efef9692fc7607e87fee0087d06f7805",
+  "size": 82238795,
   "format": "apk",
   "decompressionHint": "已是 .apk，无需解压",
-  "notes": "v0.15.17 设置面板加「返回」键 + 左滑返回改成关面板（不再退出 App）。① 原来的退出键只是右上角 28x28 的小 ✕、和「打开配置文件」挤一行，等于没有；现在改成左侧 88x44 的「‹ 返回」胶囊。② 左滑退 App 的根因是 dsh 的 SPA 从不 pushState，history.length 恒为 1 → MainActivity.onBackPressed 里 canGoBack() 永远 false → 直接 finish。现在面板打开时压一条 history，系统返回/左滑 = 关面板；关面板时再 history.back() 弹掉记录，历史不累积。下载 https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.17/DSH-Mobile-0.15.17-debug.apk"
+  "notes": "v0.15.18 输入区排版 + 键盘避让。① 底部控制行原来权限按钮 105px + 模型按钮 176px 挤一行、重叠 64px、模型名被截成 DeepSee…；权限改成 30x30 胶囊（点开才显示文字），行内分 tools/trailing 两块，模型名完整显示、零重叠零越界。② 打字时输入框跟着键盘上移：本机 MIUI 系统层拿不到键盘高度（IME 是独立 overlay，App 窗口 frame 不随键盘变、insets 不回调、visualViewport 无事件），改为页面报告输入框焦点、壳据此收缩 WebView 高度。真机验证 770→447，输入框 y 667→344，失焦还原。下载 https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.18/DSH-Mobile-0.15.18-debug.apk"
 }
