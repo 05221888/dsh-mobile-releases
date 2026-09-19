@@ -1,10 +1,10 @@
 {
-  "versionCode": 46,
-  "versionName": "0.15.15",
-  "url": "https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.15/DSH-Mobile-0.15.15-debug.apk",
-  "sha256": "3128081532f44c1975434a17569350c8673a1e96a63b7c1df5989c48e75e65e2",
-  "size": 82100368,
+  "versionCode": 48,
+  "versionName": "0.15.17",
+  "url": "https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.17/DSH-Mobile-0.15.17-debug.apk",
+  "sha256": "5b840287907152372fa81cddda141510ec5126ea3d986dfaa5a72fa6c0998a6f",
+  "size": 82107860,
   "format": "apk",
   "decompressionHint": "已是 .apk，无需解压",
-  "notes": "v0.15.15 修「设置页划不到底，配不了自定义提供方的 API Key」。根因：手机 WebView 83（Chromium 83）解析不了 CSS inset 简写（Chrome 87 才有），dsh 面板的 position:fixed;inset:0 整条被丢弃 → 回落到 static position → 面板跑到屏幕外被裁，只剩上半截，所以划不到底。修复：① 运行时 inset shim（把 1~4 值简写展开成 top/right/bottom/left，覆盖已有/动态插入的 <style> 与 CSSOM insertRule，新内核自动跳过）；② 移动端抽屉不再用 transform 位移（transform 会让 fixed 后代以抽屉为参照系），改 left 位移。顺带修掉内置插件每次启动被判「拷贝不完整」而全量重铺的问题。下载 https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.15/DSH-Mobile-0.15.15-debug.apk"
+  "notes": "v0.15.17 设置面板加「返回」键 + 左滑返回改成关面板（不再退出 App）。① 原来的退出键只是右上角 28x28 的小 ✕、和「打开配置文件」挤一行，等于没有；现在改成左侧 88x44 的「‹ 返回」胶囊。② 左滑退 App 的根因是 dsh 的 SPA 从不 pushState，history.length 恒为 1 → MainActivity.onBackPressed 里 canGoBack() 永远 false → 直接 finish。现在面板打开时压一条 history，系统返回/左滑 = 关面板；关面板时再 history.back() 弹掉记录，历史不累积。下载 https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.17/DSH-Mobile-0.15.17-debug.apk"
 }
