@@ -1,10 +1,10 @@
 {
   "versionCode": 45,
   "versionName": "0.15.14",
-  "url": "https://gitee.com/wushenghuang/dsh-mobile-android/releases/download/apk-v0.15.14/DSH-Mobile-0.15.14-debug.apk",
+  "url": "https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.14/DSH-Mobile-0.15.14-debug.apk",
   "sha256": "b1ea42fcac21312a9b4af013ce378317b3b5d4f7f75ba8d7886e6169b7048cd1",
   "size": 82095120,
   "format": "apk",
   "decompressionHint": "已是 .apk，无需解压",
-  "notes": "v0.15.12~0.15.14 三连修（都是引擎/界面生命周期）：① 修「引擎双启动 → EADDRINUSE 整树崩」——真机 startup-report 抓到 8.4KB 崩溃栈；冷启动 20-45s 窗口里旧逻辑把正在启动的引擎当坏引擎杀掉重来。现在 60s 启动宽限期内只等不杀、引擎句柄改成进程级单例、重启前真等端口释放（最多 8s）。② 修「后台引擎死了没人拉，通知却还写着运行中」——看门狗在正常启动路径上从来没装上（引擎已在跑就直接 return）；现在只要运行时在位就装上，且不再无脑清冷却；划掉界面也不再杀引擎（保活真的生效）。③ 修「界面白屏/渲染进程崩溃把 App 带走」——补 onRenderProcessGone：崩溃后自动重建界面，不再白屏也不再被系统杀。下载 https://gitee.com/wushenghuang/dsh-mobile-android/releases/download/apk-v0.15.14/DSH-Mobile-0.15.14-debug.apk（注：dsh-mobile-releases 仓库附件配额已满 1GB，本次 APK 放在源码仓库 releases）"
+  "notes": "v0.15.12~0.15.14 三连修（都是引擎/界面生命周期）：① 修「引擎双启动 → EADDRINUSE 整树崩」——真机 startup-report 抓到 8.4KB 崩溃栈；冷启动 20-45s 窗口里旧逻辑把正在启动的引擎当坏引擎杀掉重来。现在 60s 启动宽限期内只等不杀、引擎句柄改成进程级单例、重启前真等端口释放（最多 8s）。② 修「后台引擎死了没人拉，通知却还写着运行中」——看门狗在正常启动路径上从来没装上（引擎已在跑就直接 return）；现在只要运行时在位就装上，且不再无脑清冷却；划掉界面也不再杀引擎（保活真的生效）。③ 修「界面白屏/渲染进程崩溃把 App 带走」——补 onRenderProcessGone：崩溃后自动重建界面，不再白屏也不再被系统杀。下载 https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.14/DSH-Mobile-0.15.14-debug.apk"
 }
