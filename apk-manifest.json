@@ -1,10 +1,10 @@
 {
-  "versionCode": 42,
-  "versionName": "0.15.11",
-  "url": "https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.11/DSH-Mobile-0.15.11-debug.apk",
-  "sha256": "1a9d1233a693483d1e4f9d69ac5671269fab5d7d9e6d5ee3a1ddf938fe698cb7",
-  "size": 82115228,
+  "versionCode": 45,
+  "versionName": "0.15.14",
+  "url": "https://gitee.com/wushenghuang/dsh-mobile-android/releases/download/apk-v0.15.14/DSH-Mobile-0.15.14-debug.apk",
+  "sha256": "b1ea42fcac21312a9b4af013ce378317b3b5d4f7f75ba8d7886e6169b7048cd1",
+  "size": 82095120,
   "format": "apk",
   "decompressionHint": "已是 .apk，无需解压",
-  "notes": "v0.15.11 修「运行时更新失败，请重试」+ 老 WebView 起不来。① 备份不再整棵 copyRecursively —— 快照 profiles 下 510 条 Termux 悬空符号链接会让它抛 NoSuchFileException 被吞掉，界面永远停在「运行时更新失败」；改成只精确备份 7 项用户数据、悬空链接只删链接本身，备份不完整就中止刷新、绝不清场。② node-pty 原生绑定的 pty.node 需要 _Unwind_Resume，而快照里 Termux 版 libc++ 把它留成隐藏符号；该 import 失败会因 cordis fail-loud 拖垮整棵插件树，引擎永远 bind 不上端口。现在降级为用到才报错，普通子进程走 child_process 不受影响。③ 前端 bundle 的 ??= ||= &&= 与私有类成员是语法错误，Chromium 83（Android 10 出厂 WebView）解析不了，页面永久停在 Loading plugins；已按 Chromium<85 降级，并把 Object.hasOwn / Array.at / structuredClone / replaceAll / WeakRef / AbortSignal.any 等运行时 polyfill 内联进首页。真机（MIX 2S / Android 10 / WebView 83）验证：引擎正常 bind :3080、界面完整渲染、控制台零报错。注意：交互式终端仍不可用（需重建 android-arm64 的 pty.node）；聊天、工具调用、文件操作正常。下载 https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.11/DSH-Mobile-0.15.11-debug.apk"
+  "notes": "v0.15.12~0.15.14 三连修（都是引擎/界面生命周期）：① 修「引擎双启动 → EADDRINUSE 整树崩」——真机 startup-report 抓到 8.4KB 崩溃栈；冷启动 20-45s 窗口里旧逻辑把正在启动的引擎当坏引擎杀掉重来。现在 60s 启动宽限期内只等不杀、引擎句柄改成进程级单例、重启前真等端口释放（最多 8s）。② 修「后台引擎死了没人拉，通知却还写着运行中」——看门狗在正常启动路径上从来没装上（引擎已在跑就直接 return）；现在只要运行时在位就装上，且不再无脑清冷却；划掉界面也不再杀引擎（保活真的生效）。③ 修「界面白屏/渲染进程崩溃把 App 带走」——补 onRenderProcessGone：崩溃后自动重建界面，不再白屏也不再被系统杀。下载 https://gitee.com/wushenghuang/dsh-mobile-android/releases/download/apk-v0.15.14/DSH-Mobile-0.15.14-debug.apk（注：dsh-mobile-releases 仓库附件配额已满 1GB，本次 APK 放在源码仓库 releases）"
 }
