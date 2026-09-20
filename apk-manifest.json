@@ -1,10 +1,10 @@
 {
-  "versionCode": 49,
-  "versionName": "0.15.18",
-  "url": "https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.18/DSH-Mobile-0.15.18-debug.apk",
-  "sha256": "2192de2c3498c8b13ea4fd335dd0d275efef9692fc7607e87fee0087d06f7805",
-  "size": 82238795,
+  "versionCode": 50,
+  "versionName": "0.15.19",
+  "url": "https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.19/DSH-Mobile-0.15.19-debug.apk",
+  "sha256": "79227d1b45810e2718fc4898a46424823455499a9b5c895acf57beddf388f0ed",
+  "size": 82243406,
   "format": "apk",
   "decompressionHint": "已是 .apk，无需解压",
-  "notes": "v0.15.18 输入区排版 + 键盘避让。① 底部控制行原来权限按钮 105px + 模型按钮 176px 挤一行、重叠 64px、模型名被截成 DeepSee…；权限改成 30x30 胶囊（点开才显示文字），行内分 tools/trailing 两块，模型名完整显示、零重叠零越界。② 打字时输入框跟着键盘上移：本机 MIUI 系统层拿不到键盘高度（IME 是独立 overlay，App 窗口 frame 不随键盘变、insets 不回调、visualViewport 无事件），改为页面报告输入框焦点、壳据此收缩 WebView 高度。真机验证 770→447，输入框 y 667→344，失焦还原。下载 https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.18/DSH-Mobile-0.15.18-debug.apk"
+  "notes": "v0.15.19 修复「点击输入框键盘不出来」。v0.15.18 的键盘避让会在输入框聚焦瞬间收缩 WebView，而 focusin 夹在 touchend 与浏览器合成的 mousedown 之间 —— 布局一变，这次 IME show 请求作废，且 mousedown 落到 scrollBody 上把焦点抢走，键盘再也弹不出来。修复：① 壳不再改 WebView 尺寸，抬升改由页面内 transform 完成，点击命中完全不受影响；② 抬升推迟到触摸序列结束之后再执行（实测 5/5 成功，此前第二次点击必失败）；③ 收回逻辑加固（focusout + click + 页面失焦/切后台 + 轮询兜底）。真机验证：点输入框→键盘弹出→打字→收键盘位置还原→再点仍正常。下载 https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.19/DSH-Mobile-0.15.19-debug.apk"
 }
