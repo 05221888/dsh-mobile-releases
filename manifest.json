@@ -1,5 +1,1 @@
-﻿{
-    "url":  "https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/v0.12.0/snapshot.tar.xz",
-    "sha256":  "1dfc71461b560a0a4dde2093884b42b05f6faf2cdc94bbc5224e732717717168",
-    "size":  75844596
-}
+{ "url": "https://gitee.com/wushenghuang/dsh-mobile-android/releases/download/v0.12.0-shizuku/snapshot.tar.xz", "sha256": "1dfc71461b560a0a4dde2093884b42b05f6faf2cdc94bbc5224e732717717168", "size": 75844596 }
