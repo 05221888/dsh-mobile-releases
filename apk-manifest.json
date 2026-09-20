@@ -2,9 +2,9 @@
   "versionCode": 50,
   "versionName": "0.15.19",
   "url": "https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.19/DSH-Mobile-0.15.19-debug.apk",
-  "sha256": "79227d1b45810e2718fc4898a46424823455499a9b5c895acf57beddf388f0ed",
-  "size": 82243406,
+  "sha256": "5ca58cef55c5e053f750bfee656f31144ab635c5f6a42cfa1a3d5be44384d825",
+  "size": 82243898,
   "format": "apk",
   "decompressionHint": "已是 .apk，无需解压",
-  "notes": "v0.15.19 修复「点击输入框键盘不出来」。v0.15.18 的键盘避让会在输入框聚焦瞬间收缩 WebView，而 focusin 夹在 touchend 与浏览器合成的 mousedown 之间 —— 布局一变，这次 IME show 请求作废，且 mousedown 落到 scrollBody 上把焦点抢走，键盘再也弹不出来。修复：① 壳不再改 WebView 尺寸，抬升改由页面内 transform 完成，点击命中完全不受影响；② 抬升推迟到触摸序列结束之后再执行（实测 5/5 成功，此前第二次点击必失败）；③ 收回逻辑加固（focusout + click + 页面失焦/切后台 + 轮询兜底）。真机验证：点输入框→键盘弹出→打字→收键盘位置还原→再点仍正常。下载 https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.19/DSH-Mobile-0.15.19-debug.apk"
+  "notes": "v0.15.19 修复「点击输入框键盘不出来」。v0.15.18 的键盘避让会在输入框聚焦瞬间收缩 WebView，而 focusin 夹在 touchend 与浏览器合成的 mousedown 之间 —— 布局一变，这次 IME show 请求作废，且 mousedown 落到 scrollBody 上把焦点抢走，键盘再也弹不出来。修复：① 壳不再改 WebView 尺寸，抬升改由页面内 transform 完成，点击命中完全不受影响；② 抬升推迟到触摸序列结束之后再执行；③ 顺带修掉「键盘弹着按返回键会把整个 App 退掉」（现在只收键盘）；④ 首屏自动聚焦不再误抬（要求页面持有窗口焦点）。真机回归 8/8：点输入框弹键盘→打字可见→收键盘位置还原→再点仍正常→BACK 只收键盘不退出→再点仍正常。下载 https://gitee.com/wushenghuang/dsh-mobile-releases/releases/download/apk-v0.15.19/DSH-Mobile-0.15.19-debug.apk"
 }
